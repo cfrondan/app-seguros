@@ -323,5 +323,4 @@ if query:
     if fuentes_ordenadas["otro"]:
         st.markdown("**📁 Otros:**")
         for f in fuentes_ordenadas["otro"]:
->>>>>>> 8e5829e27230804d70bb93f949c4f8d2b92df483
             st.write("- " + f)

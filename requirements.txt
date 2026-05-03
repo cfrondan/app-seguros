@@ -1,20 +1,9 @@
-<<<<<<< HEAD
 streamlit
-langchain
-langchain-community
-langchain-openai
-langchain-text-splitters
-langchain-classic
-faiss-cpu
-pypdf
-=======
-streamlit
-langchain
-langchain-community
-langchain-openai
-langchain-text-splitters
-langchain-classic
-faiss-cpu
-pypdf
->>>>>>> 8e5829e27230804d70bb93f949c4f8d2b92df483
 openai
+langchain
+langchain-community
+langchain-openai
+langchain-classic
+faiss-cpu
+pypdf
+tiktoken

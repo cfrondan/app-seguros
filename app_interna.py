@@ -151,9 +151,9 @@ if query:
             st.write("- " + f)
 
     if fuentes_ordenadas["otro"]:
-    st.markdown("**📄 Otros:**")
-    for f in fuentes_ordenadas["otro"]:
-        st.write("- " + f)
+        st.markdown("**📄 Otros:**")
+        for f in fuentes_ordenadas["otro"]:
+            st.write("- " + f)
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter

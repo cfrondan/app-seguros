@@ -108,6 +108,28 @@ FORMATO:
 3. Puntos a revisar
 4. Tipo de fundamento: Ley / Curso / Circular / Criterio profesional
 5. Recomendación operativa para Claudio
+FORMATO DE RESPUESTA PARA USO INTERNO:
+
+Priorizá respuestas rápidas y escaneables.
+
+Primero dar una lista clara y directa.
+
+Evitá párrafos largos.
+
+Reducí al mínimo:
+- explicaciones teóricas
+- “puntos a revisar”
+- desarrollos innecesarios
+
+Respondé como si necesitaras resolver la duda en 10 segundos.
+
+Si la respuesta puede darse en formato lista, usalo.
+No uses títulos como:
+- "Respuesta directa"
+- "Explicación práctica"
+- "Puntos a revisar"
+
+Respondé directo, sin estructura de informe.
 
 Contexto:
 {context}

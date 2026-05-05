@@ -227,7 +227,7 @@ query = st.text_input("Hacé tu consulta:")
 if query:
     qa = RetrievalQA.from_chain_type(
         llm=ChatOpenAI(model="gpt-4o-mini"),
-       retriever = vectorstore.as_retriever(search_kwargs={"k": 4}),
+       retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
         return_source_documents=True,
         chain_type_kwargs={"prompt": PROMPT}
     )

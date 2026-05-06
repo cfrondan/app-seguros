@@ -349,16 +349,18 @@ PROMPT = PromptTemplate(
 # -----------------------------
 query = st.text_input("Hacé tu consulta:")
 
-if db is None:
-    st.warning("El asistente está respondiendo con conocimiento profesional, sin documentación cargada.")
-    respuesta = ChatOpenAI(model="gpt-4o-mini").invoke(
-        PROMPT.format(context="", question=query)
-    ).content
-    st.subheader("Respuesta")
-    st.write(respuesta)
-    st.stop()
+if query:
 
-retriever = db.as_retriever(search_kwargs={"k": 4})
+    if db is None:
+        st.warning("El asistente está respondiendo con conocimiento profesional, sin documentación cargada.")
+        respuesta = ChatOpenAI(model="gpt-4o-mini").invoke(
+            PROMPT.format(context="", question=query)
+        ).content
+        st.subheader("Respuesta")
+        st.write(respuesta)
+        st.stop()
+
+    retriever = db.as_retriever(search_kwargs={"k": 4})
 
     qa = RetrievalQA.from_chain_type(
         llm=ChatOpenAI(model="gpt-4o-mini"),
@@ -369,8 +371,8 @@ retriever = db.as_retriever(search_kwargs={"k": 4})
 
     result = qa({"query": query})
 
-    respuesta = result["result"]
-    fuentes = result.get("source_documents", [])
+    st.subheader("Respuesta")
+    st.write(result["result"])
 
     def es_relevante(fuentes):
         if not fuentes:

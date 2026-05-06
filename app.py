@@ -46,10 +46,14 @@ def load_docs():
 embeddings = OpenAIEmbeddings()
 
 
-db = FAISS.load_local(
-    "faiss_index_interna",
-    embeddings,
-    allow_dangerous_deserialization=True
+try:
+    db = FAISS.load_local(
+        "faiss_index_interna",
+        embeddings,
+        allow_dangerous_deserialization=True
+    )
+except Exception:
+    db = None
 )
 # PROMPT PROFESIONAL
 # -----------------------------
@@ -345,8 +349,16 @@ PROMPT = PromptTemplate(
 # -----------------------------
 query = st.text_input("Hacé tu consulta:")
 
-if query:
-    retriever = db.as_retriever(search_kwargs={"k": 4})
+if db is None:
+    st.warning("El asistente está respondiendo con conocimiento profesional, sin documentación cargada.")
+    respuesta = ChatOpenAI(model="gpt-4o-mini").invoke(
+        PROMPT.format(context="", question=query)
+    ).content
+    st.subheader("Respuesta")
+    st.write(respuesta)
+    st.stop()
+
+retriever = db.as_retriever(search_kwargs={"k": 4})
 
     qa = RetrievalQA.from_chain_type(
         llm=ChatOpenAI(model="gpt-4o-mini"),

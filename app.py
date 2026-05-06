@@ -373,22 +373,4 @@ if query:
 
     st.subheader("Respuesta")
     st.write(result["result"])
-
-    def es_relevante(fuentes):
-        if not fuentes:
-            return False
-
-        contenido = fuentes[0].page_content
-
-        if len(contenido) < 200:
-            return False
-
-        return True
-
-    if es_relevante(fuentes):
-        texto_fuente = "\n\nFuente: Documentación cargada"
-    else:
-        texto_fuente = "\n\nFuente: Conocimiento profesional del asesor"
-
-    st.subheader("Respuesta")
-    st.write(respuesta + texto_fuente)
+    st.caption("Fuente: Conocimiento profesional del asesor")

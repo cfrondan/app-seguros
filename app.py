@@ -225,7 +225,7 @@ PROMPT = PromptTemplate(
 query = st.text_input("Hacé tu consulta:")
 
 if query:
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
+    retriever = db.as_retriever(search_kwargs={"k": 4})
 
     qa = RetrievalQA.from_chain_type(
         llm=ChatOpenAI(model="gpt-4o-mini"),

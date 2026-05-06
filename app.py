@@ -352,7 +352,7 @@ query = st.text_input("Hacé tu consulta:")
 if query:
 
     if db is None:
-        st.warning("El asistente está respondiendo con conocimiento profesional, sin documentación cargada.")
+
         respuesta = ChatOpenAI(model="gpt-4o-mini").invoke(
             PROMPT.format(context="", question=query)
         ).content

@@ -54,7 +54,7 @@ try:
     )
 except Exception:
     db = None
-)
+
 # PROMPT PROFESIONAL
 # -----------------------------
 prompt_template = """
